@@ -66,3 +66,19 @@ get ("/dice/5/25") do
   erb(:five_twentyfive)
 
 end
+
+
+get ("/dice/1/100") do
+  @roll = []
+
+  100.times do 
+    die= rand(1...100)
+
+  @roll.push(die)
+end
+
+@outcome = "you rolled: #{@roll}"
+
+  erb(:one_hundred)
+
+end
