@@ -11,15 +11,6 @@ get ("/") do
   erb(:elephant)
 end
 
-get ("/zebra") do
-  "we must add a route for every one! Is it working?"
-end
-
-get ("/wgrieger") do 
-  "hello will, nice to see you here. Things are working"
-end 
-
-
 
 #2x ten sides
 get ("/dice/2/10") do
@@ -27,10 +18,9 @@ get ("/dice/2/10") do
   second_die= rand(1...10)
   sum= first_die + second_die
 
-  outcome= "you rolled #{first_die} and #{second_die} for total of #{sum}"
-
-  " <h1> Hello, world! </h1>
-  <p> #{outcome} </p>"
+  @outcome= "you rolled #{first_die} and #{second_die} for total of #{sum}"
+  erb (:wrapper)
+  erb (:two_ten)
 end
 
 #2x six sides
@@ -39,10 +29,9 @@ get ("/dice/2/6") do
   second_die= rand(1...6)
   sum= first_die + second_die
 
-  outcome= "you rolled #{first_die} and #{second_die} for total of #{sum}"
-
-  "<h1> 2x 6sides </h1>
-  <p> outcome </p>"
+  @outcome= "you rolled #{first_die} and #{second_die} for total of #{sum}"
+  erb (:wrapper)
+  erb(:two_six)
 
 end
 
@@ -51,9 +40,24 @@ get ("/dice/1/20") do
   first_die= rand(1...20)
 
 
-  outcome= "you rolled #{first_die} "
+  @outcome= "you rolled #{first_die} "
+  erb (:wrapper)
+  erb (:one_twenty)
+end
+
+
+get ("/dice/5/25") do
+  first_die= rand(1...25)
+  second_die= rand(1...25)
+  third_die= rand(1...25)
+  four_die= rand(1...25)
+  fifth_die= rand(1...25)
   
-  "<h1> 1x 20 sides </h1>
-  <p> #{outcome} </p>"
+  sum= first_die + second_die +third_die + four_die + fifth_die
+
+  @outcome= "you rolled a  total of #{sum}"
+
+  erb (:wrapper)
+  erb (:five_twentyfive)
 
 end
