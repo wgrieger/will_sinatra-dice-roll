@@ -1,5 +1,11 @@
 require "sinatra"
 require "sinatra/reloader"
+require "better_errors"
+require "binding_of_caller"
+
+use(BetterErrors::Middleware)
+BetterErrors.application_root = __dir__
+BetterErrors::Middleware.allow_ip!('0.0.0.0/0.0.0.0')
 
 get ("/") do
   '<h1> hello rice roll </h1>
@@ -11,7 +17,7 @@ get ("/zebra") do
 end
 
 get ("/wgrieger") do 
-  "hello will, nice to see you here. I think tis works "
+  "hello will, nice to see you here. Things are working"
 end 
 
 get("/dice/2/6") do
