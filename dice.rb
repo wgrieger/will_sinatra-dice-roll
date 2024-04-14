@@ -2,9 +2,10 @@ require "sinatra"
 require "sinatra/reloader"
 
 get ("/") do
-  "Hello World"
-  "I am ready to get home"
+  '<h1> hello rice roll </h1>
+  <p><a href="https://glowing-giggle-pj76vq4p599gc55p-4567.app.github.dev/dice/2/10">2 times of 10 sided</a></p>'
 end
+
 get ("/zebra") do
   "we must add a route for every one! Is it working?"
 end
