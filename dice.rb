@@ -8,7 +8,9 @@ BetterErrors.application_root = __dir__
 BetterErrors::Middleware.allow_ip!('0.0.0.0/0.0.0.0')
 
 get ("/") do
+  
   erb(:elephant)
+
 end
 
 
@@ -19,8 +21,9 @@ get ("/dice/2/10") do
   sum= first_die + second_die
 
   @outcome= "you rolled #{first_die} and #{second_die} for total of #{sum}"
-  erb (:wrapper)
-  erb (:two_ten)
+
+  erb(:two_ten)
+
 end
 
 #2x six sides
@@ -30,19 +33,22 @@ get ("/dice/2/6") do
   sum= first_die + second_die
 
   @outcome= "you rolled #{first_die} and #{second_die} for total of #{sum}"
-  erb (:wrapper)
+  
   erb(:two_six)
+
 
 end
 
 #1x 20 sides
 get ("/dice/1/20") do
-  first_die= rand(1...20)
+  @first_die= rand(1...20)
 
 
-  @outcome= "you rolled #{first_die} "
-  erb (:wrapper)
-  erb (:one_twenty)
+  @outcome= "you rolled #{@first_die}"
+
+  erb(:one_twenty)
+
+
 end
 
 
@@ -57,7 +63,6 @@ get ("/dice/5/25") do
 
   @outcome= "you rolled a  total of #{sum}"
 
-  erb (:wrapper)
-  erb (:five_twentyfive)
+  erb(:five_twentyfive)
 
 end

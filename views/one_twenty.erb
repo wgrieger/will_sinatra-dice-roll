@@ -1,9 +1,9 @@
-<!DOCTYPE HTML>
-<HTML>
-<head>
-  <title> one times twenty sides </title>
-</head>
 
 
   <p> one time twenty sides </p>
-  <p> <%=@outcome%> </p>
+
+  <%if @first_die == 1%>
+    <p style="color: red"><%=@outcome%></p>
+  <%elsif%>  
+  <p style="color: cyan"> <%=@outcome%> </p>
+<%end%>
